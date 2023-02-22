@@ -10,7 +10,7 @@ use RustPasswordGen::generator::psuedo;
 fn generate_password(length: usize) -> String {
     let mut password_parts = Vec::new();
 
-    let password_parts1 = psuedo(8);
+    let password_part1 = psuedo(8);
     password_parts.push(password_part1);
 
     // Generate the second third of the password using the OS RNG
