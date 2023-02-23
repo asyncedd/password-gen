@@ -1,7 +1,6 @@
 // src/generator/pseudo.rs
 
 use rand::Rng;
-use std::fs;
 
 pub fn generate_password(length: usize, chars: &[char]) -> String {
     // Generate the first third of the password using the Rust PRNG

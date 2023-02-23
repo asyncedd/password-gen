@@ -1,5 +1,4 @@
 use reqwest::blocking::Client;
-use std::fs;
 use rand::prelude::*;
 
 pub fn generate_password(length: usize, chars: &Vec<char>) -> String {
