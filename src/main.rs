@@ -5,6 +5,7 @@ use std::fs::File;
 use std::fs;
 mod generator;
 
+
 fn generate_password(length: usize) -> String {
     let mut rng = rand::thread_rng();
     let mut password_parts = Vec::new();
