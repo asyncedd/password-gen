@@ -15,7 +15,7 @@ fn generate_password(length: usize) -> String {
     // create a Vec<char> from the contents
     let chars = contents.chars().collect::<Vec<_>>();
 
-    let password_part1 = generator::pseudo::generate_password(8);
+    let password_part1 = generator::pseudo::generate_password(8, &chars);
     password_parts.push(password_part1);
 
     // Generate the second third of the password using the OS RNG
@@ -28,7 +28,7 @@ fn generate_password(length: usize) -> String {
     let password_part2 = base64::encode(&password_part2);
     password_parts.push(password_part2);
 
-    let password_part3 = generator::randomorg::generate_password(10);
+    let password_part3 = generator::randomorg::generate_password(10, &chars);
 
     password_parts.push(password_part3);
 

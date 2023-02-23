@@ -2,17 +2,11 @@ use reqwest::blocking::Client;
 use std::fs;
 use rand::prelude::*;
 
-pub fn generate_password(length: usize) -> String {
+pub fn generate_password(length: usize, chars: &Vec<char>) -> String {
 
     let mut rng = rand::thread_rng();
     // Generate the final third of the password using the Random.org API
     let client = Client::new();
-
-    // read the contents of the file
-    let contents = fs::read_to_string("chars.txt").expect("Failed to read file");
-
-    // create a Vec<char> from the contents
-    let chars = contents.chars().collect::<Vec<_>>();
 
     let url = format!(
         "https://www.random.org/integers/?num={}&min=0&max=255&col=1&base=10&format=plain&rnd=new",
@@ -38,3 +32,4 @@ pub fn generate_password(length: usize) -> String {
     password_part3
 
 }
+
