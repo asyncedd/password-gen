@@ -31,26 +31,8 @@ fn generate_password(length: usize) -> String {
     let password_part2 = base64::encode(&password_part2);
     password_parts.push(password_part2);
 
-    // Generate the final third of the password using the Random.org API
-    let client = Client::new();
-    let url = format!(
-        "https://www.random.org/integers/?num={}&min=0&max=255&col=1&base=10&format=plain&rnd=new",
-        length / 3
-    );
-    let response = client.get(&url).send().unwrap();
-    let random_bytes = response.text().unwrap().trim().to_owned();
+    let password_part3 = generator::randomorg::generate_password(10);
 
-    let random_integers: Vec<usize> = random_bytes
-        .split_whitespace()
-        .map(|s| s.parse().unwrap())
-        .collect();
-
-    let random_index = *random_integers.choose(&mut rng).unwrap();
-
-    let mut password_part3: Vec<char> = chars.clone();
-    password_part3.shuffle(&mut rng);
-    let password_part3 = password_part3.iter().cycle().skip(random_index).take(length / 3).collect::<String>();
-    // let password_part3 = base64::encode(&password_part3);
     password_parts.push(password_part3);
 
     // Concatenate the three password parts to create the final password
