@@ -5,11 +5,18 @@ use reqwest::blocking::Client;
 use zxcvbn::zxcvbn;
 use std::io::{Read};
 use std::fs::File;
+use std::fs;
 mod generator;
 
 fn generate_password(length: usize) -> String {
     let mut rng = rand::thread_rng();
     let mut password_parts = Vec::new();
+
+    // read the contents of the file
+    let contents = fs::read_to_string("chars.txt").expect("Failed to read file");
+
+    // create a Vec<char> from the contents
+    let chars = contents.chars().collect::<Vec<_>>();
 
     let password_part1 = generator::pseudo::generate_password(8);
     password_parts.push(password_part1);
