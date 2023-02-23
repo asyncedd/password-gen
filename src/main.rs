@@ -1,7 +1,4 @@
-use rand::Rng;
 use rand::prelude::SliceRandom;
-use rand::prelude::*;
-use reqwest::blocking::Client;
 use zxcvbn::zxcvbn;
 use std::io::{Read};
 use std::fs::File;
