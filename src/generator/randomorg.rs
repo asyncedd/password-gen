@@ -1,7 +1,5 @@
 use reqwest::blocking::Client;
 use std::fs;
-use rand::Rng;
-use rand::prelude::SliceRandom;
 use rand::prelude::*;
 
 pub fn generate_password(length: usize) -> String {
