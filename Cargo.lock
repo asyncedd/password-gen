@@ -3,18 +3,6 @@
 version = 3
 
 [[package]]
-name = "RustPasswordGen"
-version = "0.1.0"
-dependencies = [
- "base64 0.13.1",
- "hex",
- "rand",
- "reqwest",
- "serde_json",
- "zxcvbn",
-]
-
-[[package]]
 name = "aho-corasick"
 version = "0.7.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -745,6 +733,18 @@ dependencies = [
  "wasm-bindgen-futures",
  "web-sys",
  "winreg",
+]
+
+[[package]]
+name = "rust-password-gen"
+version = "0.1.0"
+dependencies = [
+ "base64 0.13.1",
+ "hex",
+ "rand",
+ "reqwest",
+ "serde_json",
+ "zxcvbn",
 ]
 
 [[package]]
